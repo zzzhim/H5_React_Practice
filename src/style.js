@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:23:55
- * @LastEditTime: 2019-04-22 00:38:39
+ * @LastEditTime: 2019-04-22 21:40:01
  */
 
 import { createGlobalStyle } from 'styled-components'
@@ -29,25 +29,31 @@ export const GlobalStyled = createGlobalStyle`
         font: inherit;
         vertical-align: baseline;
     }
+
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
     footer, header, hgroup, menu, nav, section {
         display: block;
     }
+
     body {
         line-height: 1;
     }
+
     ol, ul {
         list-style: none;
     }
+
     blockquote, q {
         quotes: none;
     }
+
     blockquote:before, blockquote:after,
     q:before, q:after {
         content: '';
         content: none;
     }
+    
     table {
         border-collapse: collapse;
         border-spacing: 0;
