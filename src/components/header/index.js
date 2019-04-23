@@ -3,13 +3,14 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-04-23 22:52:02
+ * @LastEditTime: 2019-04-23 23:16:38
  */
 
 // import React, { Component } from 'react'
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { actionCreators } from './store/index.js'
 import {
     HeaderWrapper,
     Logo,
@@ -139,18 +140,10 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch, action) => {
     return {
         handleInputFocus() {
-            const action = {
-                type: 'search_focus'
-            }
-
-            dispatch(action)
+            dispatch(actionCreators.searchFocus())
         },
         handleInputBlur() {
-            const action = {
-                type: 'search_blur'
-            }
-
-            dispatch(action)
+            dispatch(actionCreators.searchBlur())
         }
     }
 }

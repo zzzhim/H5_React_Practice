@@ -3,8 +3,10 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 23:54:45
- * @LastEditTime: 2019-04-23 22:46:16
+ * @LastEditTime: 2019-04-23 23:13:57
  */
+
+import { constants } from './index.js'
 
 const defaultState = {
     focused: false
@@ -16,10 +18,10 @@ export default (state = defaultState, action) => {
     const { type } = action
 
     switch(type) {
-        case 'search_focus':
+        case constants.SEARCH_FOCUS:
             newState.focused = true
             break
-        case 'search_blur':
+        case constants.SEARCH_BLUR:
             newState.focused = false
             break
         default:
