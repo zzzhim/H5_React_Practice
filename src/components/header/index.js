@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-04-23 00:17:06
+ * @LastEditTime: 2019-04-23 22:52:02
  */
 
 // import React, { Component } from 'react'
@@ -129,9 +129,8 @@ const Header = (props) => {
 //     }
 // }
 
-const mapStateToProps = ({
-    focused
-}) => {
+const mapStateToProps = (state) => {
+    const { focused } = state.header
     return {
         focused
     }
@@ -155,6 +154,5 @@ const mapDispathToProps = (dispatch, action) => {
         }
     }
 }
-
 
 export default connect(mapStateToProps, mapDispathToProps)(Header)
