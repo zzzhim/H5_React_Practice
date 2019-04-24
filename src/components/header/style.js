@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:22:07
- * @LastEditTime: 2019-04-22 23:21:09
+ * @LastEditTime: 2019-04-24 22:51:00
  */
 
 import styled from 'styled-components'
@@ -114,6 +114,45 @@ export const NavSearch = styled.input.attrs({
         background: #777;
         color: #fff;
     }
+`
+
+export const SearchInfo = styled.div`
+    position: absolute;
+    left: 20px;
+    top: 56px;
+    width: 240px;
+    // height: 100px;
+    height: auto;
+    padding: 0 20px;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`
+
+export const SearchInfoTitle = styled.div`
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 20px;
+    font-size: 20px;
+    font-size: 14px;
+    color: #969696;
+`
+
+export const SearchInfoSwitch = styled.div`
+    float: right;
+    font-size: 12px;
+`
+
+export const SearchInfoItem = styled.a`
+    line-height: 20px;
+    padding: 0 5px;
+    font-size: 12px;
+    border: 1px solid #dddddd;
+    color: #787878;
+    border-radius: 3px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 15px;
 `
 
 export const Addition = styled.div`
