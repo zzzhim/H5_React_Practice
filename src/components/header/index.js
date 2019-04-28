@@ -3,13 +3,14 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-04-25 00:03:00
+ * @LastEditTime: 2019-04-29 01:40:55
  */
 
 import React, { Component } from 'react';
 // import React from 'react'
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import _ from 'lodash';
 import { actionCreators } from './store/index.js';
 import {
     HeaderWrapper,
@@ -78,21 +79,42 @@ class Header extends Component {
         this.getListArea = this.getListArea.bind(this);
     }
 
-    getListArea(list) {
-        if(this.props.focused) {
+    getListArea() {
+        const {
+            focused,
+            mouseIn,
+            list,
+            page,
+            totalPage,
+            handleMouseEnter,
+            handleMouseLeave,
+            handleChangePage
+        } = this.props;
+
+        const jsList = list.toJS();
+        const pageList = _.slice(jsList, (page - 1) * 10, page * 10);
+
+        if(focused || mouseIn) {
             return (
-                <SearchInfo>
+                <SearchInfo
+                    onMouseEnter={ handleMouseEnter }
+                    onMouseLeave={ handleMouseLeave }
+                    >
                     <SearchInfoTitle>
-                            热门搜索
-                            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                        热门搜索
+                        <SearchInfoSwitch
+                            onClick={ () => handleChangePage(page, totalPage) }
+                            >
+                            换一批
+                        </SearchInfoSwitch>
                     </SearchInfoTitle>
                     <div>
                         {
-                            this.props.list.map(item => {
+                            pageList.length ? pageList.map(item => {
                                 return (
                                     <SearchInfoItem key={ item }>{ item }</SearchInfoItem>
                                 )
-                            })
+                            }) : null
                         }
                     </div>
                 </SearchInfo>
@@ -103,6 +125,7 @@ class Header extends Component {
     }
 
     render() {
+        const { focused, handleInputFocus, handleInputBlur } = this.props
         return (
             <HeaderWrapper>
                 <Logo href="/" />
@@ -115,14 +138,14 @@ class Header extends Component {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={ this.props.focused }
+                            in={ focused }
                             timeout={ 200 }
                             classNames="slide"
                             >
                             <NavSearch
-                                className={ this.props.focused ? 'focused' : '' }
-                                onFocus={ this.props.handleInputFocus }
-                                onBlur={ this.props.handleInputBlur }
+                                className={ focused ? 'focused' : '' }
+                                onFocus={ handleInputFocus }
+                                onBlur={ handleInputBlur }
                             />
                         </CSSTransition>
                         <i className="iconfont">&#xe637;</i>
@@ -142,19 +165,16 @@ class Header extends Component {
 };
 
 const mapStateToProps = (state) => {
-    // const { focused } = state.header
-    // return {
-    //     focused: state.header.get('focused')
-    // }
-
     return {
-        // focused: state.get('header').get('focused'),
         focused: state.getIn([ 'header', 'focused' ]),
+        mouseIn: state.getIn([ 'header', 'mouseIn' ]),
         list: state.getIn([ 'header', 'list' ]),
+        page: state.getIn([ 'header', 'page' ]),
+        totalPage: state.getIn([ 'header', 'totalPage' ])
     };
 };
 
-const mapDispathToProps = (dispatch, action) => {
+const mapDispathToProps = (dispatch) => {
     return {
         handleInputFocus() {
             dispatch(actionCreators.getList());
@@ -162,6 +182,19 @@ const mapDispathToProps = (dispatch, action) => {
         },
         handleInputBlur() {
             dispatch(actionCreators.searchBlur());
+        },
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnter());
+        },
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeave());
+        },
+        handleChangePage(page, totalPage) {
+            if(page < totalPage) {
+                dispatch(actionCreators.changePage(page + 1));
+            }else {
+                dispatch(actionCreators.changePage(1));
+            };
         }
     };
 };
