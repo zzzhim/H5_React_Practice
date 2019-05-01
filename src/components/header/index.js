@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-04-29 01:40:55
+ * @LastEditTime: 2019-05-01 19:39:30
  */
 
 import React, { Component } from 'react';
@@ -103,8 +103,9 @@ class Header extends Component {
                     <SearchInfoTitle>
                         热门搜索
                         <SearchInfoSwitch
-                            onClick={ () => handleChangePage(page, totalPage) }
+                            onClick={ () => handleChangePage(page, totalPage, this.spinIcon ) }
                             >
+                            <i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>
                             换一批
                         </SearchInfoSwitch>
                     </SearchInfoTitle>
@@ -125,7 +126,7 @@ class Header extends Component {
     }
 
     render() {
-        const { focused, handleInputFocus, handleInputBlur } = this.props
+        const { focused, handleInputFocus, handleInputBlur, list } = this.props
         return (
             <HeaderWrapper>
                 <Logo href="/" />
@@ -144,11 +145,11 @@ class Header extends Component {
                             >
                             <NavSearch
                                 className={ focused ? 'focused' : '' }
-                                onFocus={ handleInputFocus }
+                                onFocus={ () => handleInputFocus(list) }
                                 onBlur={ handleInputBlur }
                             />
                         </CSSTransition>
-                        <i className="iconfont">&#xe637;</i>
+                        <i className="iconfont zoom">&#xe637;</i>
                         { this.getListArea() }
                     </SearchWrapper>
                 </Nav>
@@ -176,8 +177,8 @@ const mapStateToProps = (state) => {
 
 const mapDispathToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getList());
+        handleInputFocus(list) {
+            (list.size === 0) && dispatch(actionCreators.getList());
             dispatch(actionCreators.searchFocus());
         },
         handleInputBlur() {
@@ -189,7 +190,16 @@ const mapDispathToProps = (dispatch) => {
         handleMouseLeave() {
             dispatch(actionCreators.mouseLeave());
         },
-        handleChangePage(page, totalPage) {
+        handleChangePage(page, totalPage, spin) {
+            let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+            if(originAngle) {
+                originAngle = parseInt(originAngle, 10);
+            }else {
+                originAngle = 0;
+            }
+
+            spin.style.transform = `rotate(${originAngle + 360}deg)`;
+
             if(page < totalPage) {
                 dispatch(actionCreators.changePage(page + 1));
             }else {

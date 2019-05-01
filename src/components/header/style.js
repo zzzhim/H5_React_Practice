@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:22:07
- * @LastEditTime: 2019-04-24 22:51:00
+ * @LastEditTime: 2019-05-01 19:41:14
  */
 
 import styled from 'styled-components'
@@ -77,7 +77,7 @@ export const SearchWrapper = styled.div`
     .slide-exit-active {
         width: 160px;
     }
-    .iconfont {
+    .zoom {
         position: absolute;
         right: 5px;
         bottom: 4px;
@@ -140,6 +140,17 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.div`
     float: right;
     font-size: 12px;
+    cursor: pointer;
+    .spin {
+        font-size: 12px;
+        margin-top: 1px;
+        margin-right: 2px;
+        transition: all .2s ease-in;
+        transform: rotate(0deg);
+        transform-origin: center center;
+        display: block;
+        float: left;
+    }
 `
 
 export const SearchInfoItem = styled.a`
