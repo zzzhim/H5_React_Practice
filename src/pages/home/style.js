@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:09:29
- * @LastEditTime: 2019-05-03 02:24:59
+ * @LastEditTime: 2019-05-03 03:11:12
  */
 
 import styled from 'styled-components';
@@ -35,6 +35,7 @@ export const TopicWrapper = styled.div`
     overflow: hidden;
     padding: 20px 0 10px 0;
     margin-left: -18px;
+    border-bottom: 1px solid #dcdcdc;
 `;
 
 export const TopicItem = styled.div`
@@ -56,5 +57,37 @@ export const TopicItem = styled.div`
         display: block;
         float: left;
         margin-right: 10px;
+    }
+`;
+
+export const ListItem = styled.div`
+    overflow: hidden;
+    padding: 20px 0px;
+    border-bottom: 1px solid #dcdcdc;
+
+    .pic {
+        display: block;
+        width: 125px;
+        height: 100px;
+        float: right;
+        border-radius: 10px;
+    }
+`;
+
+export const ListInfo = styled.div`
+    width: 500px;
+    float: left;
+
+    .title {
+        line-height: 27px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .desc {
+        line-height: 24px;
+        font-size: 13px;
+        color: #999;
     }
 `;

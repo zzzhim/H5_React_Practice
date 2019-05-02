@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-03 02:26:59
- * @LastEditTime: 2019-05-03 02:30:10
+ * @LastEditTime: 2019-05-03 03:13:34
  */
 import { fromJS } from 'immutable';
 
@@ -19,6 +19,32 @@ const defaultState = fromJS({
             title: '手绘',
             imgUrl: '//upload.jianshu.io/users/upload_avatars/13213889/7314c5cc-ca7f-4542-b914-2c8dffaf324d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
         }
+    ],
+    articleList: [
+        {
+            id: 1,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+        },
+        {
+            id: 2,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+        },
+        {
+            id: 3,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+        },
+        {
+            id: 4,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
+        },
     ]
 });
 

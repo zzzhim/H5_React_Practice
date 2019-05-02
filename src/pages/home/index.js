@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:46:08
- * @LastEditTime: 2019-05-03 02:11:17
+ * @LastEditTime: 2019-05-03 03:25:06
  */
 
 import React, { Component } from 'react';
@@ -22,7 +22,11 @@ class Home extends Component {
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img className="banner-img" src="//upload.jianshu.io/admin_banners/web_images/4652/f32e7f414d86d5a1709f8e6f00ec3272fd9f604b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" />
+                    <img
+                        className="banner-img"
+                        src="//upload.jianshu.io/admin_banners/web_images/4652/f32e7f414d86d5a1709f8e6f00ec3272fd9f604b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"
+                        alt=''
+                    />
                     <Topic></Topic>
                     <List></List>
                 </HomeLeft>
