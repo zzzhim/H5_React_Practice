@@ -3,16 +3,17 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 23:54:45
- * @LastEditTime: 2019-04-24 21:53:44
+ * @LastEditTime: 2019-05-03 02:36:04
  */
 
-// import { combineReducers } from 'redux'
-import { reducer as headerReducer} from '../components/header/store'
-import { combineReducers } from 'redux-immutable'
+import { combineReducers } from 'redux-immutable';
+import { reducer as headerReducer } from '../components/header/store';
+import { reducer as homeReducer }  from '../pages/home/store';
 
 // 生成一个不可更改对象
 const reducer = combineReducers({
-    header: headerReducer
-})
+    header: headerReducer,
+    home: homeReducer
+});
 
-export default reducer
+export default reducer;
