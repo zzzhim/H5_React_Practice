@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-03 22:58:03
- * @LastEditTime: 2019-05-04 00:31:45
+ * @LastEditTime: 2019-05-04 01:09:59
  */
 
 import axios from 'axios';
@@ -49,3 +49,8 @@ export const getMoreList = (page) => {
             });
     };
 };
+
+export const toggleTopShow = (show) => ({
+    type: constants.TOGGLE_SCROLL_TOP,
+    show
+})

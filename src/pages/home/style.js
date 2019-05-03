@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:09:29
- * @LastEditTime: 2019-05-04 00:01:20
+ * @LastEditTime: 2019-05-04 00:58:37
  */
 
 import styled from 'styled-components';
@@ -230,4 +230,16 @@ export const WriterFollow = styled.div`
     padding: 0;
     font-size: 13px;
     color: #42c02e;
+`;
+
+export const BackTop = styled.div`
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    width: 60px;
+    heightL 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 12px;
 `;

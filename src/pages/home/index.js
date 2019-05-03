@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:46:08
- * @LastEditTime: 2019-05-03 23:01:05
+ * @LastEditTime: 2019-05-04 01:15:19
  */
 
 import React, { Component } from 'react';
@@ -17,11 +17,26 @@ import { actionCreators } from './store';
 import {
     HomeWrapper,
     HomeLeft,
-    HomeRight
+    HomeRight,
+    BackTop
 } from './style';
 
 class Home extends Component {
+    handleScrollTop() {
+        window.scrollTo(0, 0);
+    }
+
+    bindEvents() {
+        window.addEventListener(
+            'scroll',
+            this.props.changeScrollTopShow,
+            false
+        );
+    }
+
     render() {
+        const { showScroll } = this.props;
+
         return (
             <HomeWrapper>
                 <HomeLeft>
@@ -37,19 +52,48 @@ class Home extends Component {
                     <Recommend></Recommend>
                     <Writer></Writer>
                 </HomeRight>
+                {
+                    showScroll
+                    ?
+                    <BackTop onClick={ this.handleScrollTop }>
+                        回到顶部
+                    </BackTop>
+                    :
+                    null
+                }
             </HomeWrapper>
         );
     }
+
     componentDidMount() {
-        this.props.cahngeHomeData()
+        this.props.cahngeHomeData();
+        this.bindEvents();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll');
     }
 };
+
+const mapState = (state) => ({
+    showScroll: state.getIn([ 'home', 'showScroll' ])
+});
 
 const mapDispatch = (dispatch) => ({
     cahngeHomeData() {
         const action = actionCreators.getHomeInfo();
         dispatch(action);
+    },
+    changeScrollTopShow() {
+        const top = document.documentElement.scrollTop;
+        if(top > 50) {
+            const action = actionCreators.toggleTopShow(true);
+            dispatch(action);
+        }else {
+            const action = actionCreators.toggleTopShow(false);
+            dispatch(action);
+        };
     }
 });
 
-export default connect(null, mapDispatch)(Home);
+export default connect(mapState, mapDispatch)(Home);
