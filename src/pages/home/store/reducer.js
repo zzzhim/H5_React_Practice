@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-03 02:26:59
- * @LastEditTime: 2019-05-03 03:13:34
+ * @LastEditTime: 2019-05-03 14:57:57
  */
 import { fromJS } from 'immutable';
 
@@ -45,6 +45,16 @@ const defaultState = fromJS({
             desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
             imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
         },
+    ],
+    recommendList: [
+        {
+            id: 1,
+            imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
+        },
+        {
+            id: 2,
+            imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
+        }
     ]
 });
 

@@ -3,16 +3,39 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:36
- * @LastEditTime: 2019-05-03 02:09:24
+ * @LastEditTime: 2019-05-03 15:01:58
  */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {
+    RecommendWrapper,
+    RecommendItem
+} from '../style';
 
 class Recommend extends Component {
     render() {
+        const { list } = this.props;
+
         return (
-            <div>Recommend</div>
+            <RecommendWrapper>
+                {
+                    list.map((item) => {
+                        return (
+                            <RecommendItem
+                            key={ item.get('id') }
+                            imgUrl={ item.get('imgUrl') }
+                            >
+                            </RecommendItem>
+                        );
+                    })
+                }
+            </RecommendWrapper>
         );
     }
 };
 
-export default Recommend;
+const mapState = (state) => ({
+    list: state.get('home').get('recommendList')
+});
+
+export default connect(mapState, null)(Recommend);
