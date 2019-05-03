@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-03 02:26:59
- * @LastEditTime: 2019-05-03 23:06:18
+ * @LastEditTime: 2019-05-04 00:22:00
  */
 import { fromJS } from 'immutable';
 import * as constants from './constants';
@@ -11,7 +11,8 @@ import * as constants from './constants';
 const defaultState = fromJS({
     topicList: [],
     articleList: [],
-    recommendList: []
+    recommendList: [],
+    articlePage: 1
 });
 
 // 使用immutable
@@ -24,6 +25,11 @@ export default (state = defaultState, action) => {
                 topicList: fromJS(action.topicList),
                 articleList: fromJS(action.articleList),
                 recommendList: fromJS(action.recommendList)
+            });
+        case constants.ADD_ARTICLE_LIST:
+            return state.merge({
+                'articleList': state.get('articleList').concat(fromJS(action.list)),
+                'articlePage': action.nextPage
             });
         default:
             return state;

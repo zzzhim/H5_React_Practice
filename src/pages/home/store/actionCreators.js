@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-03 22:58:03
- * @LastEditTime: 2019-05-03 23:05:45
+ * @LastEditTime: 2019-05-04 00:31:45
  */
 
 import axios from 'axios';
@@ -28,4 +28,24 @@ export const getHomeInfo = () => {
                 console.log(err);
             });
     }
+};
+
+const addHomeList = (list, nextPage) => ({
+    type: constants.ADD_ARTICLE_LIST,
+    list,
+    nextPage
+})
+
+export const getMoreList = (page) => {
+    return (dispatch) => {
+        axios.get('/api/homeList?page=' + page)
+            .then(res => {
+                const result = res.data.data;
+                const action = addHomeList(result, page + 1);
+                dispatch(action);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
 };

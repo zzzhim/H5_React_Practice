@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:26
- * @LastEditTime: 2019-05-03 15:55:27
+ * @LastEditTime: 2019-05-04 00:18:55
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -11,18 +11,20 @@ import {
     ListItem,
     ListInfo,
     ListLabel,
-    ListLabelFont
+    ListLabelFont,
+    LoadMore
 } from '../style';
+import { actionCreators } from '../store';
 
 class List extends Component {
     render() {
-        const { list } = this.props;
+        const { list, getMoreList, page } = this.props;
         return (
             <div>
                 {
-                    list.map((item) => {
+                    list.map((item, index) => {
                         return (
-                            <div key={ item.get('id') }>
+                            <div key={ index }>
                                 <ListItem>
                                     <img className={ 'pic' } src={ item.get('imgUrl') } alt=''/>
                                     <ListInfo>
@@ -51,13 +53,21 @@ class List extends Component {
                         );
                     })
                 }
+                <LoadMore onClick={ () => getMoreList(page) }>更多文字</LoadMore>
             </div>
         );
     }
 };
 
 const mapState = (state) => ({
-    list: state.get('home').get('articleList')
+    list: state.get('home').get('articleList'),
+    page: state.getIn(['home', 'articlePage'])
 });
 
-export default connect(mapState, null)(List);
+const mapDispatch = (dispatch) => ({
+    getMoreList(page) {
+        dispatch(actionCreators.getMoreList(page))
+    }
+});
+
+export default connect(mapState, mapDispatch)(List);

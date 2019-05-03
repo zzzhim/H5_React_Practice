@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:09:29
- * @LastEditTime: 2019-05-03 22:30:30
+ * @LastEditTime: 2019-05-04 00:01:20
  */
 
 import styled from 'styled-components';
@@ -134,6 +134,18 @@ export const ListLabelFont = styled.div`
         color: #b4b4b4;
         vertical-align: middle;
     }
+`;
+
+export const LoadMore = styled.div`
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin: 30px 0px;
+    background: #a5a5a5;
+    text-align: center;
+    border-radius: 20px;
+    color: #ffffff;
+    cursor: pointer;
 `;
 
 export const RecommendWrapper = styled.div`

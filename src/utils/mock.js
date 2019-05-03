@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-24 23:29:25
- * @LastEditTime: 2019-05-03 22:36:55
+ * @LastEditTime: 2019-05-04 00:53:58
  */
 
 import Mock from 'mockjs';
@@ -73,7 +73,7 @@ Mock.mock('/api/home', {
                 author: '迷影生活',
                 comment: 50,
                 like: 62
-            },
+            }
         ],
         recommendList: [
             {
@@ -94,6 +94,53 @@ Mock.mock('/api/home', {
             }
         ]
     }
-})
+});
+
+Mock.mock(/^(\/api\/homeList\?page=)(\d)+$/, 'get', {
+    success: true,
+    data: [
+        {
+            id: 5,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+            score: 7.8,
+            author: '迷影生活',
+            comment: 6,
+            like: 9
+        },
+        {
+            id: 6,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+            score: 9,
+            author: '迷影生活',
+            comment: 20,
+            like: 6
+
+        },
+        {
+            id: 7,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+            score: 9.5,
+            author: '迷影生活',
+            comment: 260,
+            like: 68
+        },
+        {
+            id: 8,
+            title: '无人赞助倾尽身家，吴京苦尽甘来，但你不知道成名前的他有多苦',
+            desc: '现在娱乐圈是鲜肉当道，实力派艺人几乎都处于被忽略的地位。 但是要挑起作品的大梁，唯有老艺人才能做顶梁柱。鲜肉太稚嫩，无力承担。在今年的贺岁档上，...',
+            imgUrl: '//upload-images.jianshu.io/upload_images/1545827-18642cbf05052034?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+            score: 6.8,
+            author: '迷影生活',
+            comment: 50,
+            like: 62
+        }
+    ]
+});
 
 export default Mock;
