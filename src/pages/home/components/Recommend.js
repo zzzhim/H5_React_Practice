@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:36
- * @LastEditTime: 2019-05-03 15:01:58
+ * @LastEditTime: 2019-05-03 15:57:14
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -22,8 +22,8 @@ class Recommend extends Component {
                     list.map((item) => {
                         return (
                             <RecommendItem
-                            key={ item.get('id') }
-                            imgUrl={ item.get('imgUrl') }
+                                key={ item.get('id') }
+                                imgUrl={ item.get('imgUrl') }
                             >
                             </RecommendItem>
                         );

@@ -3,14 +3,17 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:46:08
- * @LastEditTime: 2019-05-03 03:25:06
+ * @LastEditTime: 2019-05-03 23:01:05
  */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Topic from './components/Topic';
 import List from './components/List';
 import Recommend from './components/Recommend';
 import Writer from './components/Writer';
+import { actionCreators } from './store';
+
 import {
     HomeWrapper,
     HomeLeft,
@@ -37,6 +40,16 @@ class Home extends Component {
             </HomeWrapper>
         );
     }
+    componentDidMount() {
+        this.props.cahngeHomeData()
+    }
 };
 
-export default Home;
+const mapDispatch = (dispatch) => ({
+    cahngeHomeData() {
+        const action = actionCreators.getHomeInfo();
+        dispatch(action);
+    }
+});
+
+export default connect(null, mapDispatch)(Home);
