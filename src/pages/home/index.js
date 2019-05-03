@@ -3,10 +3,10 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:46:08
- * @LastEditTime: 2019-05-04 01:15:19
+ * @LastEditTime: 2019-05-04 01:53:52
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Topic from './components/Topic';
 import List from './components/List';
@@ -21,7 +21,7 @@ import {
     BackTop
 } from './style';
 
-class Home extends Component {
+class Home extends PureComponent {
     handleScrollTop() {
         window.scrollTo(0, 0);
     }
@@ -71,7 +71,10 @@ class Home extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll');
+        window.removeEventListener(
+            'scroll',
+            this.props.changeScrollTopShow
+        );
     }
 };
 

@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-05-01 19:39:30
+ * @LastEditTime: 2019-05-04 01:50:52
  */
 
 import React, { Component } from 'react';
@@ -26,6 +26,7 @@ import {
     SearchInfoSwitch,
     SearchInfoItem
 } from './style';
+import { Link } from 'react-router-dom';
 
 // 使用无状态组件
 // const Header = (props) => {
@@ -129,7 +130,9 @@ class Header extends Component {
         const { focused, handleInputFocus, handleInputBlur, list } = this.props
         return (
             <HeaderWrapper>
-                <Logo href="/" />
+                <Link to="/">
+                    <Logo />
+                </Link>
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载App</NavItem>

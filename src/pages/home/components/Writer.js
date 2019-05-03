@@ -3,9 +3,9 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:36
- * @LastEditTime: 2019-05-03 23:01:38
+ * @LastEditTime: 2019-05-04 01:43:00
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
     WriterWrapper,
     WriterTitle,
@@ -15,7 +15,7 @@ import {
     WriterFollow
 } from '../style';
 
-class Writer extends Component {
+class Writer extends PureComponent {
     render() {
         return (
             <WriterWrapper>

@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-21 23:16:09
- * @LastEditTime: 2019-05-02 21:08:32
+ * @LastEditTime: 2019-05-04 01:52:29
  */
 
 import React, { Component } from 'react';
@@ -23,26 +23,24 @@ class App extends Component {
         return (
             // Provider 内部的组件都可以访问到 store
             <Provider store={ store }>
-                <div>
+                {/* 路由 */}
+                <BrowserRouter>
                     <GlobalIconFont />
                     <GlobalStyled />
-                    <Header />
-                    {/* 路由 */}
-                    <BrowserRouter>
-                        <div>
-                            <Route
-                                path="/"
-                                exact
-                                component={Home}>
-                            </Route>
-                            <Route
-                                path="/detail"
-                                exact
-                                component={Detail}>
-                            </Route>
-                        </div>
-                    </BrowserRouter>
-                </div>
+                    <div>
+                        <Header />
+                        <Route
+                            path="/"
+                            exact
+                            component={Home}>
+                        </Route>
+                        <Route
+                            path="/detail"
+                            exact
+                            component={Detail}>
+                        </Route>
+                    </div>
+                </BrowserRouter>
             </Provider>
         );
     }

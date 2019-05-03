@@ -3,9 +3,9 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:26
- * @LastEditTime: 2019-05-04 00:18:55
+ * @LastEditTime: 2019-05-04 01:48:01
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {
     ListItem,
@@ -15,8 +15,9 @@ import {
     LoadMore
 } from '../style';
 import { actionCreators } from '../store';
+import { Link } from 'react-router-dom';
 
-class List extends Component {
+class List extends PureComponent {
     render() {
         const { list, getMoreList, page } = this.props;
         return (
@@ -24,7 +25,7 @@ class List extends Component {
                 {
                     list.map((item, index) => {
                         return (
-                            <div key={ index }>
+                            <Link key={ index } to='/detail'>
                                 <ListItem>
                                     <img className={ 'pic' } src={ item.get('imgUrl') } alt=''/>
                                     <ListInfo>
@@ -49,7 +50,7 @@ class List extends Component {
                                         </ListLabelFont>
                                     </ListLabel>
                                 </ListItem>
-                            </div>
+                            </Link>
                         );
                     })
                 }

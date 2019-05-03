@@ -3,16 +3,16 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:26
- * @LastEditTime: 2019-05-03 03:24:47
+ * @LastEditTime: 2019-05-04 01:44:31
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {
     TopicWrapper,
     TopicItem
 } from '../style';
 
-class Topic extends Component {
+class Topic extends PureComponent {
     render() {
         const { list } = this.props;
 

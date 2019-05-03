@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:22:07
- * @LastEditTime: 2019-05-01 19:41:14
+ * @LastEditTime: 2019-05-04 01:49:52
  */
 
 import styled from 'styled-components'
@@ -13,9 +13,7 @@ export const HeaderWrapper = styled.div`
     border-bottom: 1px solid #f0f0f0;
 `
 
-export const Logo = styled.a.attrs({
-    href: '/'
-})`
+export const Logo = styled.div`
     position: absolute;
     top: 0;
     left: 0;
