@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:48:04
- * @LastEditTime: 2019-05-04 21:36:03
+ * @LastEditTime: 2019-05-04 22:03:01
  */
 
 import React, { Component } from 'react';
@@ -13,6 +13,7 @@ import {
     Header,
     Content
 } from './style';
+import { actionCreators } from './store';
 
 class Detail extends Component {
     render() {
@@ -24,6 +25,10 @@ class Detail extends Component {
             </DetailWrapper>
         );
     }
+
+    componentDidMount() {
+        this.props.getDetail();
+    }
 };
 
 const mapState = (state) => ({
@@ -31,4 +36,10 @@ const mapState = (state) => ({
     content: state.getIn([ 'detail', 'content' ]),
 });
 
-export default connect(mapState, null)(Detail);
+const mapDispatch = (dispatch) => ({
+    getDetail() {
+        dispatch(actionCreators.getDetail());
+    }
+});
+
+export default connect(mapState, mapDispatch)(Detail);
