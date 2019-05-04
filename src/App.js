@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-21 23:16:09
- * @LastEditTime: 2019-05-04 01:52:29
+ * @LastEditTime: 2019-05-04 22:31:22
  */
 
 import React, { Component } from 'react';
@@ -35,10 +35,15 @@ class App extends Component {
                             component={Home}>
                         </Route>
                         <Route
-                            path="/detail"
+                            path="/detail/:id"
                             exact
                             component={Detail}>
                         </Route>
+                        {/* <Route
+                            path="/detail"
+                            exact
+                            component={Detail}>
+                        </Route> */}
                     </div>
                 </BrowserRouter>
             </Provider>

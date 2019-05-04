@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-04 21:23:51
- * @LastEditTime: 2019-05-04 22:09:19
+ * @LastEditTime: 2019-05-04 22:25:57
  */
 
 import axios from 'axios';
@@ -15,9 +15,9 @@ const changeDetail = (title, content) => ({
     content
 });
 
-export const getDetail = () => {
+export const getDetail = (id) => {
     return (dispatch) => {
-        axios.get('/api/detail')
+        axios.get('/api/detail?id=' + id)
             .then(res => {
                 const result = res.data.data;
                 dispatch(changeDetail(result.title, result.content));

@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 21:24:26
- * @LastEditTime: 2019-05-04 01:48:01
+ * @LastEditTime: 2019-05-04 22:31:09
  */
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
@@ -25,7 +25,8 @@ class List extends PureComponent {
                 {
                     list.map((item, index) => {
                         return (
-                            <Link key={ index } to='/detail'>
+                            <Link key={ index } to={ '/detail/' + item.get('id') }>
+                                {/* <Link key={ index } to={ '/detail?id=' + item.get('id') }> */}
                                 <ListItem>
                                     <img className={ 'pic' } src={ item.get('imgUrl') } alt=''/>
                                     <ListInfo>

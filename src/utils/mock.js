@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-24 23:29:25
- * @LastEditTime: 2019-05-04 22:05:26
+ * @LastEditTime: 2019-05-04 22:27:22
  */
 
 import Mock from 'mockjs';
@@ -143,7 +143,7 @@ Mock.mock(/^(\/api\/homeList\?page=)(\d)+$/, 'get', {
     ]
 });
 
-Mock.mock('/api/detail', {
+Mock.mock(/^(\/api\/detail\?id=)(\d)+/, {
     success: true,
     data: {
         title: '以后一定得自己开公司',

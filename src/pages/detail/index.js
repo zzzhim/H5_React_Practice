@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:48:04
- * @LastEditTime: 2019-05-04 22:03:01
+ * @LastEditTime: 2019-05-04 22:30:30
  */
 
 import React, { Component } from 'react';
@@ -17,6 +17,8 @@ import { actionCreators } from './store';
 
 class Detail extends Component {
     render() {
+        // console.log(this.props.match.params.id)
+        // console.log(this.props.params)
         const { title, content } = this.props;
         return (
             <DetailWrapper>
@@ -27,7 +29,7 @@ class Detail extends Component {
     }
 
     componentDidMount() {
-        this.props.getDetail();
+        this.props.getDetail(this.props.match.params.id);
     }
 };
 
@@ -37,8 +39,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-    getDetail() {
-        dispatch(actionCreators.getDetail());
+    getDetail(id) {
+        dispatch(actionCreators.getDetail(id));
     }
 });
 
