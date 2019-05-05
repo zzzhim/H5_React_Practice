@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-21 23:16:09
- * @LastEditTime: 2019-05-05 22:26:13
+ * @LastEditTime: 2019-05-05 22:37:39
  */
 
 import React, { Component } from 'react';
@@ -12,7 +12,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/home';
-import Detail from './pages/detail';
+import Detail from './pages/detail/loadable.js';
 import Login from './pages/login';
 import Write from './pages/write';
 
