@@ -3,10 +3,10 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-05-02 20:48:04
- * @LastEditTime: 2019-05-04 22:30:30
+ * @LastEditTime: 2019-05-05 21:24:40
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {
     DetailWrapper,
@@ -15,7 +15,7 @@ import {
 } from './style';
 import { actionCreators } from './store';
 
-class Detail extends Component {
+class Detail extends PureComponent {
     render() {
         // console.log(this.props.match.params.id)
         // console.log(this.props.params)

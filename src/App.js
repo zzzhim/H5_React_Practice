@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-21 23:16:09
- * @LastEditTime: 2019-05-04 22:31:22
+ * @LastEditTime: 2019-05-05 21:23:01
  */
 
 import React, { Component } from 'react';
@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Detail from './pages/detail';
+import Login from './pages/login';
 
 import { GlobalStyled } from './style';
 import { GlobalIconFont } from './statics/iconfont/iconfont.js';
@@ -29,6 +30,12 @@ class App extends Component {
                     <GlobalStyled />
                     <div>
                         <Header />
+                        <Route
+                            path="/login"
+                            exact
+                            component={Login}
+                            >
+                        </Route>
                         <Route
                             path="/"
                             exact

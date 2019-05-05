@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:22:07
- * @LastEditTime: 2019-05-04 01:49:52
+ * @LastEditTime: 2019-05-05 21:30:45
  */
 
 import styled from 'styled-components'
@@ -118,6 +118,7 @@ export const SearchInfo = styled.div`
     position: absolute;
     left: 20px;
     top: 56px;
+    z-index: 1;
     width: 240px;
     // height: 100px;
     height: auto;
