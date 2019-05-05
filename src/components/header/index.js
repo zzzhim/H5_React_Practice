@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-22 00:18:18
- * @LastEditTime: 2019-05-05 22:16:11
+ * @LastEditTime: 2019-05-05 22:24:30
  */
 
 import React, { Component } from 'react';
@@ -167,10 +167,12 @@ class Header extends Component {
                     </SearchWrapper>
                 </Nav>
                 <Addition>
-                    <Button className="writting">
-                        <i className="iconfont">&#xe600;</i>
-                        写文章
-                    </Button>
+                    <Link to="/write">
+                        <Button className="writting">
+                            <i className="iconfont">&#xe600;</i>
+                            写文章
+                        </Button>
+                    </Link>
                     <Button className="reg">注册</Button>
                 </Addition>
             </HeaderWrapper>

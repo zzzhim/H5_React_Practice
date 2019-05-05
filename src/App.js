@@ -3,7 +3,7 @@
  * @Author: your name
  * @LastEditors: Please set LastEditors
  * @Date: 2019-04-21 23:16:09
- * @LastEditTime: 2019-05-05 21:23:01
+ * @LastEditTime: 2019-05-05 22:26:13
  */
 
 import React, { Component } from 'react';
@@ -14,6 +14,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import Login from './pages/login';
+import Write from './pages/write';
 
 import { GlobalStyled } from './style';
 import { GlobalIconFont } from './statics/iconfont/iconfont.js';
@@ -51,6 +52,11 @@ class App extends Component {
                             exact
                             component={Detail}>
                         </Route> */}
+                        <Route
+                            path="/write"
+                            exact
+                            component={Write}>
+                        </Route>
                     </div>
                 </BrowserRouter>
             </Provider>
